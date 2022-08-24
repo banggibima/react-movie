@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 
 import Navbar from '../../components/Navbar';
 import Header from '../../components/Header';
-import FormSearchMovies from '../../components/FormSearchMovies';
-import ColumnMovies from '../../components/ColumnMovies';
+import SearchMovies from '../../components/Form/Movies/Search';
+import ColumnMovies from '../../components/Column/Movies';
 import Footer from '../../components/Footer';
 
 const MOVIE_FEATURED = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_original_language=id&primary_release_date.gte=2022-06-01&primary_release_date.lte=2022-12-31&page=1`;
@@ -56,7 +56,7 @@ const ListMovie: FC = () => {
       <main>
         <div className="max-w-5xl mx-auto sm:px-6 lg:px-8">
           <div className="px-4 sm:px-0">
-            <FormSearchMovies
+            <SearchMovies
               search={search}
               handleChange={handleChange}
               handleSubmit={handleSubmit}

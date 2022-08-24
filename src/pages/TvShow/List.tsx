@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 
 import Navbar from '../../components/Navbar';
 import Header from '../../components/Header';
-import FormSearchTvShows from '../../components/FormSearchTvShows';
-import ColumnTvShows from '../../components/ColumnTvShows';
+import SearchTvShows from '../../components/Form/TvShows/Search';
+import ColumnTvShows from '../../components/Column/TvShows';
 import Footer from '../../components/Footer';
 
 const TV_FEATURED = `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&page=1`;
@@ -56,7 +56,7 @@ const ListTvShow: FC = () => {
       <main>
         <div className="max-w-5xl mx-auto sm:px-6 lg:px-8">
           <div className="px-4 sm:px-0">
-            <FormSearchTvShows
+            <SearchTvShows
               search={search}
               handleChange={handleChange}
               handleSubmit={handleSubmit}

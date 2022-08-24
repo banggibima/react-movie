@@ -6,7 +6,7 @@ interface Props {
   handleSubmit: (e: any) => void;
 }
 
-const FormSearchTvShows: FC<Props> = ({
+const SearchMovies: FC<Props> = ({
   search,
   handleChange,
   handleSubmit,
@@ -16,7 +16,7 @@ const FormSearchTvShows: FC<Props> = ({
       <form onSubmit={handleSubmit}>
         <div className="sm:flex-none">
           <label htmlFor="search" className="block text-xs font-medium">
-            Search TV Show
+            Search Movie
           </label>
           <input
             type="text"
@@ -32,4 +32,4 @@ const FormSearchTvShows: FC<Props> = ({
   );
 };
 
-export default FormSearchTvShows;
+export default SearchMovies;
