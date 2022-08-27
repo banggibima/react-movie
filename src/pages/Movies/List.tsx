@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
 
 import Navbar from '../../components/Navbar';
@@ -15,15 +16,14 @@ const ListMovie: FC = () => {
 
   useEffect(() => {
     document.title = 'Movies';
-
     getMovies();
   }, []);
 
   const getMovies = async () => {
     try {
-      await fetch(MOVIE_FEATURED)
-        .then((res) => res.json())
-        .then((data) => setMovies(data.results));
+      await axios
+        .get(`${MOVIE_FEATURED}`)
+        .then((res) => setMovies(res.data.results));
     } catch (err) {
       throw err;
     }
@@ -38,9 +38,9 @@ const ListMovie: FC = () => {
 
     if (search) {
       try {
-        await fetch(`${MOVIE_SEARCH}${search}`)
-          .then((res) => res.json())
-          .then((data) => setMovies(data.results));
+        await axios
+          .get(`${MOVIE_SEARCH}${search}`)
+          .then((res) => setMovies(res.data.results));
       } catch (err) {
         throw err;
       }

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
 
 import Navbar from '../../components/Navbar';
@@ -15,15 +16,14 @@ const ListTvShow: FC = () => {
 
   useEffect(() => {
     document.title = 'TV Shows';
-
     getTvShows();
   }, []);
 
   const getTvShows = async () => {
     try {
-      await fetch(TV_FEATURED)
-        .then((res) => res.json())
-        .then((data) => setTvShows(data.results));
+      await axios
+        .get(`${TV_FEATURED}`)
+        .then((res) => setTvShows(res.data.results));
     } catch (err) {
       throw err;
     }
@@ -38,9 +38,9 @@ const ListTvShow: FC = () => {
 
     if (search) {
       try {
-        await fetch(`${TV_SEARCH}${search}`)
-          .then((res) => res.json())
-          .then((data) => setTvShows(data.results));
+        await axios
+          .get(`${TV_SEARCH}${search}`)
+          .then((res) => setTvShows(res.data.results));
       } catch (err) {
         throw err;
       }
