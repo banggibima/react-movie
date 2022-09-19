@@ -1,22 +1,24 @@
 import { FC } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
-import ListMovie from './pages/Movies/List';
-import ListTvShow from './pages/TvShow/List';
-import NotFound from './pages/NotFound';
+import MovieList from './pages/Movies/List';
+import MovieInfo from './pages/Movies/Info';
+import TvShowList from './pages/TvShows/List';
+import TvShowInfo from './pages/TvShows/Info';
 import About from './pages/About';
+import ErrorNotFound from './pages/ErrorNotFound';
 
 const App: FC = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<ListMovie />} />
-          <Route path="/tvshows" element={<ListTvShow />} />
-          <Route path="/about" element={<About />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<About />} />
+          <Route path="movies" element={<MovieList />} />
+          <Route path="/movies/:id" element={<MovieInfo />} />
+          <Route path="/tvshows" element={<TvShowList />} />
+          <Route path="/tvshows/:id" element={<TvShowInfo />} />
+          <Route path="*" element={<ErrorNotFound />} />
         </Routes>
       </BrowserRouter>
     </>

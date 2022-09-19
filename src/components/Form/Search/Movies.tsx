@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-interface Props {
+type Props = {
   search: string;
   handleChange: (e: any) => void;
   handleSubmit: (e: any) => void;
-}
+};
 
-const SearchMovies: FC<Props> = ({
+const FormSearchMovies: FC<Props> = ({
   search,
   handleChange,
   handleSubmit,
@@ -15,16 +15,14 @@ const SearchMovies: FC<Props> = ({
     <>
       <form onSubmit={handleSubmit}>
         <div className="sm:flex-none">
-          <label htmlFor="search" className="block text-xs font-medium">
-            Search Movie
-          </label>
           <input
             type="text"
             id="search"
             name="search"
             value={search}
             onChange={handleChange}
-            className="mt-1 block w-full text-sm border-gray-200 focus:ring-transparent focus:border-gray-200 rounded"
+            className="mt-1 block w-full text-sm bg-zinc-50 text-black font-medium shadow border-0 focus:ring-transparent focus:border-0 rounded-lg"
+            placeholder="Search Movie"
           />
         </div>
       </form>
@@ -32,4 +30,4 @@ const SearchMovies: FC<Props> = ({
   );
 };
 
-export default SearchMovies;
+export default FormSearchMovies;
